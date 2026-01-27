@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! | Site in Sixty</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thank You! | Site in Sixty">
+    <meta property="og:description" content="Your purchase is complete. Download your guide now.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+        
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #999;
+        }
+        
+        .logo span {
+            color: #FF6D3A;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #aaa;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .download-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FF6D3A;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .guide-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .guide-description {
+            color: #888;
+            margin-bottom: 25px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #FF6D3A 0%, #ff8a5c 100%);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 109, 58, 0.3);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 109, 58, 0.4);
+        }
+        
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .next-steps {
+            text-align: left;
+            background: rgba(255, 109, 58, 0.1);
+            border: 1px solid rgba(255, 109, 58, 0.2);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+        }
+        
+        .next-steps h3 {
+            font-size: 1rem;
+            color: #FF6D3A;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .next-steps ol {
+            margin-left: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        
+        .next-steps li {
+            margin-bottom: 5px;
+        }
+        
+        .email-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        
+        .email-note strong {
+            color: #888;
+        }
+        
+        .support {
+            color: #666;
+            font-size: 0.875rem;
+        }
+        
+        .support a {
+            color: #FF6D3A;
+            text-decoration: none;
+        }
+        
+        .support a:hover {
+            text-decoration: underline;
+        }
+        
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #FF6D3A;
+            opacity: 0;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" id="confetti"></div>
+    
+    <div class="container">
+        <div class="success-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        
+        <div class="logo">Site in <span>Sixty</span></div>
+        
+        <h1>You're In!</h1>
+        
+        <p class="subtitle">Your purchase is complete. Access your guide below and let's build your website.</p>
+        
+        <div class="card">
+            <div class="download-label">Your Access</div>
+            <div class="guide-title">Site in Sixty: The Complete Guide</div>
+            <p class="guide-description">Interactive guide with video walkthroughs for every step</p>
+            
+            <a href="https://docs.google.com/document/d/13_4n1xZGMLzM54PFKNVjHNhfI-1JJ9-QM6neyULtTsY/edit" target="_blank" class="download-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+                Open the Guide
+            </a>
+        </div>
+        
+        <div class="next-steps">
+            <h3>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                Your Next Steps
+            </h3>
+            <ol>
+                <li>Open the guide above</li>
+                <li>Watch the intro video first (link inside)</li>
+                <li>Set up your Claude Pro account ($20/mo)</li>
+                <li>Set up your free Cloudflare account</li>
+                <li>Follow Module 1 to start building</li>
+            </ol>
+        </div>
+        
+        <p class="email-note">
+            <strong>Bookmark this page.</strong> You can return here anytime to access your guide.
+        </p>
+        
+        <p class="support">
+            Questions? Email <a href="mailto:james@jamesguldan.com">james@jamesguldan.com</a>
+        </p>
+    </div>
+    
+    <script>
+        // Create confetti on page load
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            const colors = ['#FF6D3A', '#10B981', '#3B82F6', '#F59E0B', '#EC4899'];
+            
+            for (let i = 0; i < 50; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.animationDelay = Math.random() * 2 + 's';
+                piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                confettiContainer.appendChild(piece);
+            }
+        }
+        
+        createConfetti();
+    </script>
+</body>
+</html>
