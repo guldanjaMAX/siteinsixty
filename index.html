@@ -1177,9 +1177,215 @@
             .proof-content {
                 font-size: 1.125rem;
             }
-            
+
             .proof-time {
                 font-size: 4rem;
+            }
+        }
+
+        /* ========== CASE STUDIES SECTION ========== */
+        .case-studies-section {
+            background: var(--bg);
+        }
+
+        .case-studies-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 2.5rem;
+        }
+
+        .case-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .case-card-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 28px;
+        }
+
+        .case-card-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .case-card-dots span.dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .case-card-dots .dot-red { background: #ff5f57; }
+        .case-card-dots .dot-yellow { background: #febc2e; }
+        .case-card-dots .dot-green { background: #28c840; }
+
+        .case-card-dots .case-url {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            color: #999;
+            margin-left: 6px;
+        }
+
+        .case-card-header h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .case-card-header p {
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .case-card-body {
+            padding: 28px;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .case-stat {
+            flex: 1;
+            min-width: 100px;
+            background: var(--orange-light);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .case-stat-value {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--orange);
+            display: block;
+        }
+
+        .case-stat-label {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .case-story p {
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .case-quote {
+            background: var(--orange-light);
+            border-left: 4px solid var(--orange);
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .case-quote p {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .case-quote .case-quote-author {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: normal;
+        }
+
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--orange);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .case-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Compact photo case cards */
+        .case-card-compact {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-card-photo {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .case-card-compact .case-card-info {
+            padding: 24px;
+        }
+
+        .case-card-compact .case-card-info h3 {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .case-card-compact .case-card-info p {
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .case-badge {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--orange);
+            background: var(--orange-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .case-studies-compact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
             }
         }
     </style>
@@ -1334,6 +1540,82 @@
             <div class="proof-stat">
                 <span class="proof-time">54:23</span>
                 <span class="proof-label">From idea to live product with payment processing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section case-studies-section">
+        <div class="section-inner">
+            <span class="section-label">Real people. Real sites. Real fast.</span>
+            <h2 class="section-title">Built with Site in Sixty.</h2>
+
+            <div class="case-studies-grid">
+
+                <!-- Featured: Tailgate Crates -->
+                <div class="case-card">
+                    <div class="case-card-header">
+                        <div class="case-card-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                            <span class="case-url">tailgatecrates.com</span>
+                        </div>
+                        <h3>Tailgate Crates</h3>
+                        <p>Vinyl records from a 40 year old warehouse. Classic rock, blues, and audiophile finds brought to pop ups and shows.</p>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">~1 hr</span>
+                                <span class="case-stat-label">Build Time</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">$0</span>
+                                <span class="case-stat-label">Hosting Cost</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">Zero</span>
+                                <span class="case-stat-label">Code Written</span>
+                            </div>
+                        </div>
+                        <div class="case-story">
+                            <p>Sam and his partner run Tailgate Crates. They needed a real website but had zero technical experience. Sam grabbed the Site In Sixty guide and did something that even surprised me: he loaded the entire guide into Claude and told it, "Take me through this guide."</p>
+                            <p>Claude walked him through every step like a personal tutor. About an hour later, tailgatecrates.com was live. Their brand, their story, their show schedule, and customer reviews. No developer. No templates. No monthly fees.</p>
+                        </div>
+                        <div class="case-quote">
+                            <p>"I was literally giddy. It was so easy."</p>
+                            <span class="case-quote-author">Sam, Tailgate Crates</span>
+                        </div>
+                        <a href="https://tailgatecrates.com" target="_blank" class="case-link">
+                            Visit tailgatecrates.com
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Compact cards: Balduzzi + Higher Love -->
+                <div class="case-studies-compact-grid">
+
+                    <div class="case-card case-card-compact">
+                        <img src="screenshots/balduzzi.jpg" alt="Dr. Anthony Balduzzi personal brand website built with Site In Sixty" class="case-card-photo" loading="lazy">
+                        <div class="case-card-info">
+                            <span class="case-badge">Built with Site In Sixty</span>
+                            <h3>Dr. Anthony Balduzzi</h3>
+                            <p>A premium personal brand and mentorship site with luxury nature inspired design, timeline storytelling, and a five phase methodology layout.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-card case-card-compact">
+                        <img src="screenshots/higherlove.jpg" alt="Higher Love Event luxury retreat landing page built with Site In Sixty" class="case-card-photo" loading="lazy">
+                        <div class="case-card-info">
+                            <span class="case-badge">Built with Site In Sixty</span>
+                            <h3>Higher Love Event</h3>
+                            <p>A luxury event landing page for an exclusive retreat in Austin's Texas Hill Country, with integrated ticketing and an application flow.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
