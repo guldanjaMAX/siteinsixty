@@ -11,12 +11,12 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Test your idea in under 60 minutes. Go from shower thought to live website using AI and free hosting. No code required. Validate before you invest.">
+    <meta name="description" content="Turn your Deep Work Interview blueprint into a live, professional website in under 60 minutes. AI builds every page using your positioning, offers, and copy. No code required.">
     <meta name="author" content="James Guldan">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Site in Sixty - Test Your Idea in Under an Hour">
-    <meta property="og:description" content="Go from shower thought to live website in under 60 minutes. Validate your idea before you invest thousands.">
+    <meta property="og:title" content="Site in Sixty — From Strategy to Live Site in Under an Hour">
+    <meta property="og:description" content="Turn your Deep Work Interview blueprint into a live, professional website. AI builds every page using your positioning, offers, and copy.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://siteinsixty.com">
     <meta property="og:image" content="https://siteinsixty.com/og-image.svg">
@@ -25,30 +25,31 @@
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Site in Sixty - Test Your Idea in Under an Hour">
-    <meta name="twitter:description" content="Go from shower thought to live website in under 60 minutes. Validate your idea before you invest thousands.">
+    <meta name="twitter:title" content="Site in Sixty — From Strategy to Live Site in Under an Hour">
+    <meta name="twitter:description" content="Turn your Deep Work Interview blueprint into a live, professional website. AI builds every page using your positioning, offers, and copy.">
     <meta name="twitter:image" content="https://siteinsixty.com/og-image.svg">
     
-    <title>Site in Sixty - Test Your Idea in Under an Hour</title>
-    
-    <!-- Stripe.js -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <title>Site in Sixty — From Strategy to Live Site in Under an Hour</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23ff6d3a' rx='20' width='100' height='100'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' text-anchor='middle' fill='white'>60</text></svg>">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg: #fffbf5;
             --text: #1a1a1a;
             --text-dim: #666666;
+            --text-light: #999999;
             --orange: #ff6d3a;
+            --orange-light: rgba(255, 109, 58, 0.08);
+            --orange-border: rgba(255, 109, 58, 0.15);
             --serif: 'Fraunces', Georgia, serif;
             --sans: 'Outfit', system-ui, sans-serif;
+            --body: 'DM Sans', system-ui, sans-serif;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,9 +57,9 @@
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: var(--sans);
+            font-family: var(--body);
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         a { color: var(--orange); text-decoration: none; }
@@ -76,39 +77,82 @@
             font-family: var(--sans);
             font-size: 1.125rem;
             font-weight: 600;
+            color: var(--text);
         }
         
         .logo span { color: var(--orange); }
         
         .container {
-            max-width: 900px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 0 2rem;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 5rem 0 4rem;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 1rem;
         }
         
         h1 {
             font-family: var(--serif);
-            font-size: 3.5rem;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--orange);
         }
         
         .tagline {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-dim);
             margin-bottom: 2rem;
-            line-height: 1.6;
-            max-width: 600px;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        .hero-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-price .amount {
+            font-family: var(--sans);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .hero-price .note {
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
         
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             background: var(--orange);
             color: white;
-            padding: 1.25rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 8px;
-            font-size: 1.125rem;
+            font-family: var(--sans);
+            font-size: 1.05rem;
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 109, 58, 0.3);
@@ -119,165 +163,418 @@
             box-shadow: 0 6px 25px rgba(255, 109, 58, 0.4);
             text-decoration: none;
         }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin: 4rem 0;
+
+        .cta-sub {
+            margin-top: 0.75rem;
+            font-size: 0.82rem;
+            color: var(--text-light);
         }
-        
-        .feature {
-            padding: 2rem;
-            background: rgba(255, 109, 58, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 109, 58, 0.1);
+
+        /* SECTIONS */
+        section { padding: 4rem 0; }
+
+        .divider {
+            width: 40px;
+            height: 2px;
+            background: var(--orange);
+            margin-bottom: 2rem;
+            opacity: 0.5;
         }
-        
-        .feature h3 {
+
+        h2 {
             font-family: var(--serif);
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
         }
-        
-        .feature p {
+
+        h2 em {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        /* PROBLEM */
+        .problem {
+            background: rgba(0,0,0,0.02);
+            padding: 4rem 0;
+        }
+
+        .problem p {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            margin-bottom: 1.25rem;
+        }
+
+        /* WHAT'S INCLUDED */
+        .included-list {
+            list-style: none;
+        }
+
+        .included-list li {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--orange-border);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .included-list li:last-child {
+            border-bottom: none;
+        }
+
+        .included-num {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--orange);
+            min-width: 24px;
+            padding-top: 4px;
+        }
+
+        .included-content strong {
+            display: block;
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .included-content span {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+        }
+
+        /* PROOF */
+        .proof {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .proof-card {
+            background: white;
+            border: 1px solid var(--orange-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .proof-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .proof-quote {
+            font-size: 1rem;
+            color: var(--text-dim);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .proof-attr {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        /* SCREENSHOTS */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .screenshots-grid img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .screenshots-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* COMPARISON */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .comparison-table th {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--orange-border);
+        }
+
+        .comparison-table td {
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--orange-border);
+        }
+
+        .comparison-table td:last-child {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--orange-border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-a {
+            font-size: 0.88rem;
             color: var(--text-dim);
             line-height: 1.7;
         }
-        
-        .footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
+
+        /* FINAL CTA */
+        .final-cta {
             text-align: center;
+            padding: 5rem 0;
+            background: rgba(0,0,0,0.02);
+        }
+
+        .final-cta p {
             color: var(--text-dim);
-            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.82rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
         
-        .footer a {
-            color: var(--orange);
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .container { padding: 2rem 1rem; }
+        @media (max-width: 640px) {
+            h1 { font-size: 2.2rem; }
+            .hero { padding: 3rem 0; }
+            section { padding: 3rem 0; }
+            .container { padding: 0 1.25rem; }
+            .cta-button { width: 100%; justify-content: center; }
+            .screenshots-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="/" class="logo">Site in <span>Sixty</span></a>
-        <a href="https://jamesguldan.com" target="_blank" class="logo" style="font-weight: 400; font-size: 1rem;">By James Guldan</a>
+        <a href="https://jamesguldan.com" target="_blank" class="logo" style="font-weight: 400; font-size: 0.9rem; color: var(--text-dim);">By James Guldan</a>
     </nav>
     
-    <div class="container">
-        <h1>Build Your Website in 60 Minutes</h1>
-        <p class="tagline">Go from idea to live website in under an hour. No coding required. Use AI to build, validate, and launch in one sitting.</p>
-        
-        <a href="#pricing" class="cta-button">Get Started Now</a>
-        
-        <div class="features">
-            <div class="feature">
-                <h3>⚡ Fast</h3>
-                <p>Build a professional website in under 60 minutes. No endless configuration or learning curve.</p>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">The Implementation Sprint</div>
+            <h1>From Deep Work Blueprint to <em>Live Website</em> in Under an Hour</h1>
+            <p class="tagline">You did the Interview. You have the positioning, the offers, the copy. Now turn all of it into a real, professional website that's live and indexed before you close your laptop.</p>
+            <div class="hero-price">
+                <span class="amount">$197</span>
+                <span class="note">one time</span>
             </div>
-            
-            <div class="feature">
-                <h3>🆓 Free Hosting</h3>
-                <p>Deploy to Cloudflare Pages for free. No monthly hosting fees. Your site scales automatically.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>🤖 AI Powered</h3>
-                <p>Use Claude AI to write copy, design layouts, and solve problems. It handles the technical details.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>💼 Professional</h3>
-                <p>Launch a polished, modern website that impresses clients and customers. Custom domain ready.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>🧪 Validate First</h3>
-                <p>Test your business idea before investing thousands. Get real feedback from a live site.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>📚 Step by Step</h3>
-                <p>Video walkthroughs for every step. Complete guide with examples and best practices included.</p>
+            <a href="https://buy.stripe.com/00wfZh5OK4yKgObbuF6c007" class="cta-button">
+                Build Your Site Now
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <p class="cta-sub">Instant access. Lifetime updates. 30 day money back guarantee.</p>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem">
+        <div class="container">
+            <div class="divider"></div>
+            <h2>The strategy is done. Now <em>what?</em></h2>
+            <p>You finished the Deep Work Interview. You have a 20 page blueprint with positioning, competitor research, three structured offers, ideal client profile, and website copy written in your voice.</p>
+            <p>But a blueprint sitting in a document doesn't attract clients. A live website does.</p>
+            <p>Most coaches and consultants spend weeks (or months) trying to turn their strategy into a website. They hire designers. They fight with WordPress. They second guess every decision. By the time the site goes live, the momentum from the Interview is gone.</p>
+            <p>Site In Sixty takes the exact output from your Deep Work Interview and builds your entire website from it. Same positioning. Same voice. Same offers. Same copy. Live and indexed in under 60 minutes.</p>
+        </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section>
+        <div class="container">
+            <div class="divider"></div>
+            <h2>What's <em>included.</em></h2>
+            <ul class="included-list">
+                <li>
+                    <span class="included-num">01</span>
+                    <div class="included-content">
+                        <strong>Complete Video Walkthrough</strong>
+                        <span>Step by step video modules showing exactly how to build each page of your site using AI and your Deep Work blueprint.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="included-num">02</span>
+                    <div class="included-content">
+                        <strong>AI Site Builder Prompts</strong>
+                        <span>Pre-built prompts that take your Interview output and generate a complete, professional website. Tested across hundreds of niches.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="included-num">03</span>
+                    <div class="included-content">
+                        <strong>Free Hosting Setup</strong>
+                        <span>Deploy to Cloudflare Pages with zero monthly fees. Your site scales automatically. Custom domain ready from day one.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="included-num">04</span>
+                    <div class="included-content">
+                        <strong>Example Sites and Templates</strong>
+                        <span>Real websites built using this exact process. See what's possible and use them as starting points for your own.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="included-num">05</span>
+                    <div class="included-content">
+                        <strong>SEO and Analytics Setup</strong>
+                        <span>Your site goes live indexed by Google. Basic analytics included so you can track who's visiting and what they're clicking.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="included-num">06</span>
+                    <div class="included-content">
+                        <strong>Email Support</strong>
+                        <span>Get stuck? Email James directly. Real human help from someone who's built hundreds of sites this way.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="proof">
+        <div class="container">
+            <div class="divider"></div>
+            <h2>Sites built with this <em>process.</em></h2>
+            <div class="screenshots-grid">
+                <img src="screenshots/hci5percenttalk.jpg" alt="High Conflict Institute website" loading="lazy">
+                <img src="screenshots/rootedhuman.jpg" alt="Rooted Human website" loading="lazy">
+                <img src="screenshots/higherlove.jpg" alt="Higher Love Event website" loading="lazy">
+                <img src="screenshots/jamesguldan.jpg" alt="James Guldan website" loading="lazy">
+                <img src="screenshots/jwgenterprises.jpg" alt="JWG Enterprises website" loading="lazy">
+                <img src="screenshots/balduzzi.jpg" alt="Balduzzi website" loading="lazy">
             </div>
         </div>
-        
-        <section id="pricing" style="margin-top: 4rem;">
-            <h2 style="font-family: var(--serif); font-size: 2.5rem; margin-bottom: 2rem;">What's Included</h2>
-            
-            <div style="background: rgba(255, 109, 58, 0.08); border: 2px solid var(--orange); border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
-                <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--orange); margin-bottom: 1rem;">Site in Sixty: The Complete Guide</h3>
-                <p style="font-size: 1.25rem; color: var(--text-dim); margin-bottom: 1.5rem;">One time purchase. Lifetime access.</p>
-                
-                <ul style="list-style: none; margin-bottom: 2rem;">
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span style="color: var(--orange); font-weight: bold; margin-right: 0.75rem;">✓</span> Complete written guide with 5 modules</li>
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span style="color: var(--orange); font-weight: bold; margin-right: 0.75rem;">✓</span> Video walkthroughs for each step</li>
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span style="color: var(--orange); font-weight: bold; margin-right: 0.75rem;">✓</span> Example websites and templates</li>
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span style="color: var(--orange); font-weight: bold; margin-right: 0.75rem;">✓</span> Email support from the creator</li>
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span style="color: var(--orange); font-weight: bold; margin-right: 0.75rem;">✓</span> 30 day money back guarantee</li>
-                </ul>
-                
-                <p style="font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 1.5rem;">$47</p>
-                
-                <form id="checkout-form" style="margin-bottom: 1rem;">
-                    <input type="email" id="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 6px; font-size: 1rem;">
-                    
-                    <button type="submit" class="cta-button" style="width: 100%; text-align: center; border: none; cursor: pointer;">
-                        Buy Now
-                    </button>
-                </form>
-                
-                <p style="text-align: center; font-size: 0.875rem; color: var(--text-dim);">Secured by Stripe. 30 day refund guarantee.</p>
+    </section>
+
+    <!-- COMPARISON -->
+    <section>
+        <div class="container">
+            <div class="divider"></div>
+            <h2>What $197 <em>replaces.</em></h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Traditional Route</th>
+                        <th>Site In Sixty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Web designer: $3,000 to $10,000</td>
+                        <td>$197</td>
+                    </tr>
+                    <tr>
+                        <td>3 to 8 week build timeline</td>
+                        <td>Under 60 minutes</td>
+                    </tr>
+                    <tr>
+                        <td>$30 to $100/mo hosting fees</td>
+                        <td>Free forever</td>
+                    </tr>
+                    <tr>
+                        <td>Generic template copy</td>
+                        <td>Copy from your actual strategy</td>
+                    </tr>
+                    <tr>
+                        <td>Weeks of back and forth revisions</td>
+                        <td>Edit anything instantly with AI</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="problem">
+        <div class="container">
+            <div class="divider"></div>
+            <h2>Questions.</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">Do I need to do the Deep Work Interview first?</div>
+                <div class="faq-a">It's strongly recommended. The Interview produces the positioning, offers, and copy that Site In Sixty uses to build your site. Without it, you'd be building a website without a strategy, which is the problem most people already have.</div>
             </div>
-        </section>
-        
-        <section style="margin-top: 4rem; background: rgba(0,0,0,0.03); padding: 2.5rem; border-radius: 12px;">
-            <h2 style="font-family: var(--serif); font-size: 2rem; margin-bottom: 1.5rem;">Who This Is For</h2>
-            <ul style="list-style: none;">
-                <li style="margin-bottom: 1rem;">✓ Solopreneurs wanting to validate an idea</li>
-                <li style="margin-bottom: 1rem;">✓ Freelancers building a portfolio or client sites</li>
-                <li style="margin-bottom: 1rem;">✓ Entrepreneurs testing a business model</li>
-                <li style="margin-bottom: 1rem;">✓ Anyone who wants to build online without coding</li>
-                <li style="margin-bottom: 1rem;">✓ People who value speed and simplicity</li>
-            </ul>
-        </section>
-    </div>
-    
+
+            <div class="faq-item">
+                <div class="faq-q">Do I need to know how to code?</div>
+                <div class="faq-a">No. The entire process uses AI to handle the technical work. If you can copy and paste, you can build your site.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">What does the site actually look like?</div>
+                <div class="faq-a">Professional, modern, and fast. The screenshots above are all real sites built with this process. Every site is unique because it's built from your specific positioning and copy.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Can I edit it later?</div>
+                <div class="faq-a">Yes. Your site is plain HTML hosted on your own domain. You can edit anything at any time using the same AI tools. No vendor lock in.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">What if it doesn't work for my niche?</div>
+                <div class="faq-a">This process has been used across coaching, consulting, SaaS, events, real estate, and more. If it doesn't work for you, email James within 30 days for a full refund.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Your strategy deserves a <em>home.</em></h2>
+            <p>Stop letting your blueprint collect dust. Build the site. Get found. Start booking.</p>
+            <a href="https://buy.stripe.com/00wfZh5OK4yKgObbuF6c007" class="cta-button">
+                Build Your Site Now — $197
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <p class="cta-sub">Instant access. Lifetime updates. 30 day money back guarantee.</p>
+        </div>
+    </section>
+
     <div class="footer">
-        <p>© 2025 Site in Sixty. Made by <a href="https://jamesguldan.com" target="_blank" rel="noopener">James Guldan</a>.</p>
-        <p style="margin-top: 1rem;"><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a> · <a href="/refund/">Refund Policy</a></p>
+        <p>&copy; 2026 Site in Sixty. Made by <a href="https://jamesguldan.com" target="_blank" rel="noopener">James Guldan</a>.</p>
+        <p style="margin-top: 0.75rem;"><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a> · <a href="/refund/">Refund Policy</a></p>
     </div>
-    
-    <script>
-        const form = document.getElementById('checkout-form');
-        
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            
-            try {
-                const response = await fetch('/.netlify/functions/create-checkout', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email })
-                });
-                
-                if (!response.ok) throw new Error('Checkout failed');
-                
-                const data = await response.json();
-                window.location.href = data.url;
-            } catch (error) {
-                alert('Error creating checkout. Please try again or email james@jamesguldan.com');
-            }
-        });
-    </script>
 </body>
 </html>
